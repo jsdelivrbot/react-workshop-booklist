@@ -9,13 +9,17 @@ class BookList extends Component {
         super(props);
     }
 
+    //Método del ciclo de vida del componente al cargarlo...
     componentDidMount() {
         this.props.fetchBooks();
     }
 
     render(){
+        // Lista de libros hacer map y devolver nuevos datos
         let books = this.props.books.map((book) => {
-            return <div key={book.id} >{book.title} - {book.author}</div>
+            if (book.title.indexOf(this.props.filter_book) != -1) {
+                return <div key={book.id}>{book.title} - {book.author} - {book.isbn}</div>
+            }
         });
 
         return (
@@ -27,14 +31,25 @@ class BookList extends Component {
     }
 }
 
+//Mapear estado de aplicación a propiedades del objeto
 function mapStateToProps(state) {
+    //Devuelvo estado de la aplicación, que contiene la lista de libros.
+    //Si hay cambios en la lista el estado se entera del cambio
     return {
-        books: state.books
+        books: state.books,
+        filter_book: state.filter_book
     }
 }
 
+//Mapear el despachar acciones de mi aplicación a propiedades del objeto
+//Vinculo a una propiedad de mi componente una acción definida
 function mapDispatchToProps(dispatch){
+    // fetchBooks se saca de la definición de acciones
+    // Se define la propiedad fetchBooks a la acción fetchBooks
+    // Si se llama igual se puede colapsar {fetchBooks: fetchBooks}
+    // queda como {fetchBooks}
     return bindActionCreators({fetchBooks}, dispatch);
 }
 
+// Envolver componente en un container y devolver el container.
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);

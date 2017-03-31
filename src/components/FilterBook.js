@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {filterBooks} from '../actions/index';
 
 class FilterBook extends Component {
 
@@ -13,7 +16,6 @@ class FilterBook extends Component {
     }
 
     changeFilterText(event) {
-        console.log(this.state.term);
         this.setState({
             term: event.target.value
         })
@@ -28,11 +30,19 @@ class FilterBook extends Component {
                        onChange={this.changeFilterText}
                        placeholder="Filter books"/>
                 <span className="input-group-btn">
-                    <button className="btn btn-primary" type="button">Search</button>
+                    <button onClick={() => {this.props.filterBooks(this.state.term)}} className="btn btn-primary" type="button">Search</button>
                 </span>
             </div>
         );
     }
 }
 
-export default FilterBook;
+function mapStateToProps(state) {
+}
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({filterBooks}, dispatch);
+}
+
+// Envolver componente en un container y devolver el container.
+export default connect(mapStateToProps, mapDispatchToProps)(FilterBook);
