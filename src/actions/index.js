@@ -25,13 +25,17 @@ export function fetchBooks() {
 export function filterBooks(filter) {
     return {
         type: FILTER_BOOKS,
-        data: filter
+        payload: {
+            data: filter
+        }
     }
 }
 
 export function totalBooks(books) {
     return {
         type: TOTAL_BOOKS,
-        data: books.length
+        payload: {
+            data: books
+        }
     }
 }

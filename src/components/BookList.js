@@ -6,8 +6,9 @@ import {totalBooks} from '../actions/index';
 
 class BookList extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.total = 0;
     }
 
     //Método del ciclo de vida del componente al cargarlo...
@@ -15,15 +16,18 @@ class BookList extends Component {
         this.props.fetchBooks();
     }
 
-    setTotalBooks() {
-        this.props.totalBooks(this.props.books);
+    //Método del ciclo de vida del componente después de renderizar
+    componentDidUpdate() {
+        this.props.totalBooks(this.total);
     }
 
     render(){
-        this.setTotalBooks();
+        this.total = 0;
+
         // Lista de libros hacer map y devolver nuevos datos
         let books = this.props.books.map((book) => {
             if (book.title.indexOf(this.props.filter_book) != -1) {
+                this.total++;
                 return <div key={book.id}>{book.title} - {book.author} - {book.isbn}</div>
             }
         });
