@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchBooks} from '../actions/index';
+import {totalBooks} from '../actions/index';
 
 class BookList extends Component {
 
@@ -14,7 +15,12 @@ class BookList extends Component {
         this.props.fetchBooks();
     }
 
+    setTotalBooks() {
+        this.props.totalBooks(this.props.books);
+    }
+
     render(){
+        this.setTotalBooks();
         // Lista de libros hacer map y devolver nuevos datos
         let books = this.props.books.map((book) => {
             if (book.title.indexOf(this.props.filter_book) != -1) {
@@ -25,7 +31,9 @@ class BookList extends Component {
         return (
             <div>
                 <div>Book List</div>
+                <div style={{height:'400px', overflow:'auto', border:'1px solid black'}}>
                 {books}
+                </div>
             </div>
         )
     }
@@ -48,7 +56,7 @@ function mapDispatchToProps(dispatch){
     // Se define la propiedad fetchBooks a la acción fetchBooks
     // Si se llama igual se puede colapsar {fetchBooks: fetchBooks}
     // queda como {fetchBooks}
-    return bindActionCreators({fetchBooks}, dispatch);
+    return bindActionCreators({fetchBooks, totalBooks}, dispatch);
 }
 
 // Envolver componente en un container y devolver el container.

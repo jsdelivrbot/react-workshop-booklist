@@ -8,6 +8,7 @@ const API_URI = 'http://127.0.0.1:3000/api/0.1/';
 
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const FILTER_BOOKS = 'FILTER_BOOKS';
+export const TOTAL_BOOKS = 'TOTAL_BOOKS';
 
 // Encapsular en un método para generar la acción desde cualquier punto del programa
 // y es reutilizable
@@ -25,5 +26,12 @@ export function filterBooks(filter) {
     return {
         type: FILTER_BOOKS,
         data: filter
+    }
+}
+
+export function totalBooks(books) {
+    return {
+        type: TOTAL_BOOKS,
+        data: books.length
     }
 }
