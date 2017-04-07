@@ -9,6 +9,7 @@ const API_URI = 'http://127.0.0.1:3000/api/0.1/';
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const FILTER_BOOKS = 'FILTER_BOOKS';
 export const TOTAL_BOOKS = 'TOTAL_BOOKS';
+export const CURRENT_PAGE = 'CURRENT_PAGE';
 
 // Encapsular en un método para generar la acción desde cualquier punto del programa
 // y es reutilizable
@@ -36,6 +37,15 @@ export function totalBooks(books) {
         type: TOTAL_BOOKS,
         payload: {
             data: books
+        }
+    }
+}
+
+export function currentPage(numPage) {
+    return {
+        type: CURRENT_PAGE,
+        payload: {
+            data: numPage
         }
     }
 }
