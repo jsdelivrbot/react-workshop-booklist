@@ -3,18 +3,19 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {totalBooks} from '../actions/index';
 import {currentPage} from '../actions/index';
+import {elementsXPage} from '../actions/index';
 
 class Paginator extends Component
 {
     constructor(props) {
         super(props);
         this.totalPag = 0;
-        this.elementXPag = 10;
         this.props.currentPage(1);
+        this.props.elementsXPage(10);
     }
 
     setTotalPag() {
-        this.totalPag = Math.ceil(this.props.total_books/this.elementXPag);
+        this.totalPag = Math.ceil(this.props.total_books/this.props.elements_x_page);
         return this.totalPag;
     }
 
@@ -51,12 +52,13 @@ class Paginator extends Component
 function mapStateToProps(state) {
     return {
         total_books: state.total_books,
-        current_page: state.current_page
+        current_page: state.current_page,
+        elements_x_page: state.elements_x_page
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({totalBooks, currentPage}, dispatch);
+    return bindActionCreators({totalBooks, currentPage, elementsXPage}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Paginator);

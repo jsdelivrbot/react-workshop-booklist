@@ -10,6 +10,7 @@ export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const FILTER_BOOKS = 'FILTER_BOOKS';
 export const TOTAL_BOOKS = 'TOTAL_BOOKS';
 export const CURRENT_PAGE = 'CURRENT_PAGE';
+export const ELEMENTS_X_PAGE = 'ELEMENTS_X_PAGE';
 
 // Encapsular en un método para generar la acción desde cualquier punto del programa
 // y es reutilizable
@@ -46,6 +47,15 @@ export function currentPage(numPage) {
         type: CURRENT_PAGE,
         payload: {
             data: numPage
+        }
+    }
+}
+
+export function elementsXPage(numElements) {
+    return {
+        type: ELEMENTS_X_PAGE,
+        payload: {
+            data: numElements
         }
     }
 }

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchBooks} from '../actions/index';
 import {totalBooks} from '../actions/index';
+import {elementsXPage} from '../actions/index';
 
 class BookList extends Component {
 
@@ -23,6 +24,10 @@ class BookList extends Component {
 
     render(){
         this.total = 0;
+
+        // TODO:
+        // FALTA LISTAR LIBROS POR ELEMENTOS DE PÁGINA.
+        // MANTENER TOTAL DE LIBROS APLICADO POR FILTRO
 
         // Lista de libros hacer map y devolver nuevos datos
         let books = this.props.books.map((book) => {
@@ -49,7 +54,8 @@ function mapStateToProps(state) {
     //Si hay cambios en la lista el estado se entera del cambio
     return {
         books: state.books,
-        filter_book: state.filter_book
+        filter_book: state.filter_book,
+        elements_x_page: state.elements_x_page
     }
 }
 
