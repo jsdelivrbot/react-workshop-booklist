@@ -30,7 +30,8 @@ class BookList extends Component {
     }
 
     getFilterBooks() {
-        return this.props.books.filter((book) => book.title.indexOf(this.props.filter_book) != -1 );
+        let filterLowerCase = this.props.filter_book.toString().toLowerCase();
+        return this.props.books.filter((book) => book.title.toLowerCase().indexOf(filterLowerCase) != -1 );
     }
 
     render(){
