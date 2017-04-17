@@ -44,10 +44,10 @@ class Paginator extends Component
     render(){
         return (
             <div>
-                Total: {this.props.total_books}{" "}
+                <span style={{paddingRight: '0.9em'}}>Total: {this.props.total_books}</span>
                 <button onClick={() => {this.moveFirstPage()}} className="btn btn-primary" type="button">{'<<'}</button>
                 <button onClick={() => {this.subPage()}} className="btn btn-primary" type="button">{'<'}</button>
-                {" "}{this.props.current_page} / {this.setTotalPag()}{" "}
+                <span style={{paddingLeft:'0.5em', paddingRight:'0.5em'}}>{this.props.current_page} / {this.setTotalPag()}</span>
                 <button onClick={() => {this.addPage()}} className="btn btn-primary" type="button">{'>'}</button>
                 <button onClick={() => {this.moveLastPage()}} className="btn btn-primary" type="button">{'>>'}</button>
             </div>
