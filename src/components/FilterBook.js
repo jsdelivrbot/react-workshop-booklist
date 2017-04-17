@@ -14,6 +14,12 @@ class FilterBook extends Component {
         };
 
         this.changeFilterText = this.changeFilterText.bind(this);
+        this.keyPressEnter = this.keyPressEnter.bind(this);
+        this.KeyPressBackspace = this.KeyPressBackspace.bind(this);
+    }
+
+    cleanFilter() {
+        this.state.term = '';
     }
 
     changeFilterText(event) {
@@ -27,6 +33,19 @@ class FilterBook extends Component {
         this.props.currentPage(1);
     }
 
+    keyPressEnter(event) {
+        if (event.key === 'Enter') {
+            this.onClickFilter();
+        }
+    }
+
+    KeyPressBackspace(event) {
+        if (event.key === 'Backspace' && this.state.term.length < 2) {
+            this.cleanFilter();
+            this.keyPressEnter({key: 'Enter'});
+        }
+    }
+
     render(){
         return (
             <div className="input-group">
@@ -34,9 +53,16 @@ class FilterBook extends Component {
                        className="form-control"
                        value={this.state.term}
                        onChange={this.changeFilterText}
+                       onKeyPress={this.keyPressEnter}
+                       onKeyDown={this.KeyPressBackspace}
                        placeholder="Filter books"/>
                 <span className="input-group-btn">
-                    <button onClick={() => {this.onClickFilter()}} className="btn btn-primary" type="button">Search</button>
+                    <button
+                        onClick={() => {this.onClickFilter()}}
+                        className="btn btn-primary"
+                        type="button">
+                        Search
+                    </button>
                 </span>
             </div>
         );
