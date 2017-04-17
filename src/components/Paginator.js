@@ -31,19 +31,25 @@ class Paginator extends Component
         }
     }
 
+    moveFirstPage()
+    {
+        this.props.currentPage(1);
+    }
+
+    moveLastPage()
+    {
+        this.props.currentPage(this.totalPag);
+    }
+
     render(){
         return (
             <div>
-                <div>Total: {this.props.total_books}</div>
-                <div>Pag. Primera</div>
-                <div>
-                    <button onClick={() => {this.subPage()}} className="btn btn-primary" type="button">Pag. ant</button>
-                </div>
-                <div>{this.props.current_page} / {this.setTotalPag()}</div>
-                <div>
-                    <button onClick={() => {this.addPage()}} className="btn btn-primary" type="button">Pag. seg</button>
-                </div>
-                <div>Pag. Ultima</div>
+                Total: {this.props.total_books}{" "}
+                <button onClick={() => {this.moveFirstPage()}} className="btn btn-primary" type="button">{'<<'}</button>
+                <button onClick={() => {this.subPage()}} className="btn btn-primary" type="button">{'<'}</button>
+                {" "}{this.props.current_page} / {this.setTotalPag()}{" "}
+                <button onClick={() => {this.addPage()}} className="btn btn-primary" type="button">{'>'}</button>
+                <button onClick={() => {this.moveLastPage()}} className="btn btn-primary" type="button">{'>>'}</button>
             </div>
         );
     }

@@ -7,7 +7,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-4">
             <FilterBook />
             <BookList />
             <Paginator />
