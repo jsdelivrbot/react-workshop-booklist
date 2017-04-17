@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {filterBooks} from '../actions/index';
-import {currentPage} from '../actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { filterBooks } from '../actions/index';
+import { currentPage } from '../actions/index';
 
 class FilterBook extends Component {
 
@@ -43,12 +43,12 @@ class FilterBook extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
     return {}
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({filterBooks, currentPage}, dispatch);
+    return bindActionCreators({ filterBooks, currentPage }, dispatch);
 }
 
 // Envolver componente en un container y devolver el container.

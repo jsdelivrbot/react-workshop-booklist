@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {totalBooks} from '../actions/index';
-import {currentPage} from '../actions/index';
-import {elementsXPage} from '../actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { totalBooks } from '../actions/index';
+import { currentPage } from '../actions/index';
+import { elementsXPage } from '../actions/index';
 
 class Paginator extends Component
 {
@@ -58,7 +58,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({totalBooks, currentPage, elementsXPage}, dispatch);
+    return bindActionCreators({ totalBooks, currentPage, elementsXPage }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Paginator);

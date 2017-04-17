@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {fetchBooks} from '../actions/index';
-import {totalBooks} from '../actions/index';
-import {elementsXPage} from '../actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchBooks } from '../actions/index';
+import { totalBooks } from '../actions/index';
+import { elementsXPage } from '../actions/index';
 
 class BookList extends Component {
 
@@ -66,7 +66,7 @@ function mapDispatchToProps(dispatch){
     // Se define la propiedad fetchBooks a la acción fetchBooks
     // Si se llama igual se puede colapsar {fetchBooks: fetchBooks}
     // queda como {fetchBooks}
-    return bindActionCreators({fetchBooks, totalBooks}, dispatch);
+    return bindActionCreators({ fetchBooks, totalBooks }, dispatch);
 }
 
 // Envolver componente en un container y devolver el container.
