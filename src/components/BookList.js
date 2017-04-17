@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchBooks } from '../actions/index';
 import { totalBooks } from '../actions/index';
 import { elementsXPage } from '../actions/index';
+import { currentPage } from '../actions/index';
 
 class BookList extends Component {
 
@@ -22,26 +23,29 @@ class BookList extends Component {
         this.props.totalBooks(this.total);
     }
 
+    showCurrentElementsXPage(books) {
+        let limitMax = this.props.current_page * this.props.elements_x_page;
+        let limitMin = limitMax - this.props.elements_x_page;
+        return books.filter((element,index) => index >= limitMin && index < limitMax);
+    }
+
+    getFilterBooks() {
+        return this.props.books.filter((book) => book.title.indexOf(this.props.filter_book) != -1 );
+    }
+
     render(){
-        this.total = 0;
 
-        // TODO:
-        // FALTA LISTAR LIBROS POR ELEMENTOS DE PÁGINA.
-        // MANTENER TOTAL DE LIBROS APLICADO POR FILTRO
-
-        // Lista de libros hacer map y devolver nuevos datos
-        let books = this.props.books.map((book) => {
-            if (book.title.indexOf(this.props.filter_book) != -1) {
-                this.total++;
-                return <div key={book.id}>{book.title} - {book.author} - {book.isbn}</div>
-            }
+        let books = this.getFilterBooks().map((book) => {
+            return <div key={book.id}>{book.title} - {book.author} - {book.isbn}</div>
         });
+
+        this.total = books.length;
 
         return (
             <div>
                 <div>Book List</div>
-                <div style={{height:'400px', overflow:'auto', border:'1px solid black'}}>
-                {books}
+                <div style={{height:'250px', width:'400px', overflow:'auto', border:'1px solid black'}}>
+                {this.showCurrentElementsXPage(books)}
                 </div>
             </div>
         )
@@ -55,7 +59,8 @@ function mapStateToProps(state) {
     return {
         books: state.books,
         filter_book: state.filter_book,
-        elements_x_page: state.elements_x_page
+        elements_x_page: state.elements_x_page,
+        current_page: state.current_page
     }
 }
 
@@ -66,7 +71,7 @@ function mapDispatchToProps(dispatch){
     // Se define la propiedad fetchBooks a la acción fetchBooks
     // Si se llama igual se puede colapsar {fetchBooks: fetchBooks}
     // queda como {fetchBooks}
-    return bindActionCreators({ fetchBooks, totalBooks }, dispatch);
+    return bindActionCreators({ fetchBooks, totalBooks, elementsXPage, currentPage }, dispatch);
 }
 
 // Envolver componente en un container y devolver el container.
