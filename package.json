@@ -38,5 +38,12 @@
     "react-router": "^2.0.1",
     "redux": "^3.0.4",
     "redux-promise": "^0.5.3"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/reducers/index.{js,jsx}"
+    ]
   }
 }
