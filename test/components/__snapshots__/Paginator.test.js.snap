@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paginator component It should render an initial paginator 1`] = `
+<div>
+  <span
+    style={
+      Object {
+        "paddingRight": "0.9em",
+      }
+    }
+  >
+    Total: 
+    300
+  </span>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+    type="button"
+  >
+    &lt;&lt;
+  </button>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+    type="button"
+  >
+    &lt;
+  </button>
+  <span
+    style={
+      Object {
+        "paddingLeft": "0.5em",
+        "paddingRight": "0.5em",
+      }
+    }
+  >
+    1
+     / 
+    30
+  </span>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+    type="button"
+  >
+    &gt;
+  </button>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+    type="button"
+  >
+    &gt;&gt;
+  </button>
+</div>
+`;

@@ -5,7 +5,7 @@ import { totalBooks } from '../actions/index';
 import { currentPage } from '../actions/index';
 import { elementsXPage } from '../actions/index';
 
-class Paginator extends Component
+export class Paginator extends Component
 {
     constructor(props) {
         super(props);
