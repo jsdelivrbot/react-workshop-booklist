@@ -3,17 +3,17 @@ import ElementPerPageReducer from '../../src/reducers/reducer_elementperpage';
 describe('reducer_elementperpage', ()  => {
 
 
-        it('it should return [] with undefined args', () => {
+        it('it should return 10 with undefined args', () => {
 
-            var expected = [];
+            var expected = 10;
 
             var state = ElementPerPageReducer(undefined, {});
             expect(state).toEqual(expected);
         });
 
-        it('it should return [] because of ACTION_UNKOWN ', () => {
+        it('it should return 10 because of ACTION_UNKOWN ', () => {
 
-            var expected = [];
+            var expected = 10;
 
             var action = {
                 type: 'ACTION_UNKNOWN',

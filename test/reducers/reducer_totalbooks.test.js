@@ -3,17 +3,17 @@ import TotalBooksReducer from '../../src/reducers/reducer_totalbooks';
 describe('reducer_totalbooks', ()  => {
 
 
-        it('it should return [] with undefined args', () => {
+        it('it should return 0 with undefined args', () => {
 
-            var expected = [];
+            var expected = 0;
 
             var state = TotalBooksReducer(undefined, {});
             expect(state).toEqual(expected);
         });
 
-        it('it should return [] because of ACTION_UNKOWN ', () => {
+        it('it should return 0 because of ACTION_UNKOWN ', () => {
 
-            var expected = [];
+            var expected = 0;
 
             var action = {
                 type: 'ACTION_UNKNOWN',

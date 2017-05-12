@@ -3,17 +3,17 @@ import CurrentPageReducer from '../../src/reducers/reducer_currentpage';
 describe('reducer_currentpage', ()  => {
 
 
-        it('it should return [] with undefined args', () => {
+        it('it should return 1 with undefined args', () => {
 
-            var expected = [];
+            var expected = 1;
 
             var state = CurrentPageReducer(undefined, {});
             expect(state).toEqual(expected);
         });
 
-        it('it should return [] because of ACTION_UNKOWN ', () => {
+        it('it should return 1 because of ACTION_UNKOWN ', () => {
 
-            var expected = [];
+            var expected = 1;
 
             var action = {
                 type: 'ACTION_UNKNOWN',

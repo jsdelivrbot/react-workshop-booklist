@@ -3,17 +3,17 @@ import FilterBooksReducer from '../../src/reducers/reducer_filterbooks';
 describe('reducer_filterbooks', ()  => {
 
 
-        it('it should return [] with undefined args', () => {
+        it('it should return \'\' with undefined args', () => {
 
-            var expected = [];
+            var expected = '';
 
             var state = FilterBooksReducer(undefined, {});
             expect(state).toEqual(expected);
         });
 
-        it('it should return [] because of ACTION_UNKOWN ', () => {
+        it('it should return \'\' because of ACTION_UNKOWN ', () => {
 
-            var expected = [];
+            var expected = '';
 
             var action = {
                 type: 'ACTION_UNKNOWN',

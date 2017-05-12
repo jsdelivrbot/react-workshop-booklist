@@ -1,5 +1,5 @@
 //Mantener el estado de la lista
-export default function (state = [], action){
+export default function (state = '', action){
     switch (action.type) {
         case 'FILTER_BOOKS':
             return action.payload.data;

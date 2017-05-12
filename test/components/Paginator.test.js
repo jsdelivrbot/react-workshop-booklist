@@ -42,7 +42,7 @@ describe('Paginator component', () => {
         moveToNextPage.props.onClick();
 
         expect(_.flattenDeep(props.currentPage.mock.calls))
-            .toEqual([1, 2]);
+            .toEqual([2]);
     });
 
     it('It should render change previous page correctly', () => {
@@ -64,7 +64,7 @@ describe('Paginator component', () => {
         moveToPreviousPage.props.onClick();
 
         expect(_.flattenDeep(props.currentPage.mock.calls))
-            .toEqual([1, 3]);
+            .toEqual([3]);
     });
 
     it('It should render change first page correctly', () => {
@@ -86,7 +86,7 @@ describe('Paginator component', () => {
         moveToFirstPage.props.onClick();
 
         expect(_.flattenDeep(props.currentPage.mock.calls))
-            .toEqual([1, 1]);
+            .toEqual([1]);
     });
 
     it('It should render change last page correctly', () => {
@@ -108,6 +108,6 @@ describe('Paginator component', () => {
         moveToLastPage.props.onClick();
 
         expect(_.flattenDeep(props.currentPage.mock.calls))
-            .toEqual([1, 30]);
+            .toEqual([30]);
     });
 });
