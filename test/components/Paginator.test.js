@@ -3,15 +3,17 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import _ from 'lodash';
 
-const initialCase = {
-    total_books: 300,
-    current_page: 1,
-    elements_x_page: 10,
-    totalBooks: jest.fn(),
-    currentPage: jest.fn()
-};
+var initialCase = {};
 
 describe('Paginator component', () => {
+
+    beforeAll(() => {
+        initialCase = {
+            total_books: 300,
+            current_page: 1,
+            elements_x_page: 10
+        }
+    });
 
     beforeEach(() => {
         initialCase.currentPage = jest.fn();
