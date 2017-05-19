@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookList component It should render an initial booklist 1`] = `
+<div>
+  <div>
+    Book List
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid black",
+        "height": "250px",
+        "overflow": "auto",
+        "width": "400px",
+      }
+    }
+  />
+</div>
+`;

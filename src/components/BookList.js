@@ -6,7 +6,7 @@ import { totalBooks } from '../actions/index';
 import { elementsXPage } from '../actions/index';
 import { currentPage } from '../actions/index';
 
-class BookList extends Component {
+export class BookList extends Component {
 
     constructor(props) {
         super(props);
