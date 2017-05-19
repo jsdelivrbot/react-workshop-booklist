@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterBook component It should render an initial filterbook 1`] = `
+<div
+  className="input-group"
+>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    placeholder="Filter books"
+    type="text"
+    value=""
+  />
+  <span
+    className="input-group-btn"
+  >
+    <button
+      className="btn btn-primary"
+      onClick={[Function]}
+      type="button"
+    >
+      Search
+    </button>
+  </span>
+</div>
+`;

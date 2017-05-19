@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { filterBooks } from '../actions/index';
 import { currentPage } from '../actions/index';
 
-class FilterBook extends Component {
+export class FilterBook extends Component {
 
     constructor(props) {
         super(props);
