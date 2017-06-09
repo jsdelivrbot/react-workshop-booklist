@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise';
@@ -16,6 +17,11 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers,
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )}>
-    <App />
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/results" component={App} />
+      </Switch>
+    </Router>
   </Provider>
   , document.querySelector('#container'));
